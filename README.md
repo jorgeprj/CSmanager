@@ -33,7 +33,11 @@ The Game Design Document (GDD) of Counter Strike Manager can be found in [GDD.md
 
 
 ## Contributing
-If you would like to contribute to the development of "Counter Strike Manager", please read the instructions in [CONTRIBUTING.md](CONTRIBUTING.md) before getting started. There you will find information on how to contribute code, contribute to documentation, and report issues. We appreciate any kind of help, from bug fixes to new features!
+If you would like to contribute to the development of "Counter Strike Manager", please read the instructions in [CONTRIBUTING.md](docs/contributing/CONTRIBUTING.md) before getting started. There you will find information on how to contribute code, contribute to documentation, and report issues. We appreciate any kind of help, from bug fixes to new features!
+
+
+## Project Structure
+To learn more about the project structure, check out the [STRUCTURE.md](docs/STRUCTURE.md) file, which describes how the project is organized and divided into its different parts.
 
 
 ## Changelog
