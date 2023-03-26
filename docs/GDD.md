@@ -9,7 +9,7 @@
 ## Game Objectives
 The objective of this game is to provide a realistic experience of managing a Counter-Strike team. Players will be able to build their own teams, train them, schedule matches, manage finances, and make important decisions to achieve victory.
 
-### Progressão do jogo
+### Game Progression
 Game progression is measured by the team's position on the world ranking. Players must win matches and championships to climb the rankings and qualify for larger competitions. The ultimate goal is to win the Major or even several, creating a dynasty like *NIP*, *Fnatic*, *SK/LG*, *Astralis*, and *NAVI*.
 
 
