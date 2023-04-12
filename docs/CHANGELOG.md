@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 ### Added
-- Development of match simulation.
+- Match Simulation
 
 
 ### Changed
