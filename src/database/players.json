@@ -1,0 +1,72 @@
+[
+	{
+		"id": 1,
+		"name": "Gabriel Toledo",
+		"nickname": "FalleN",
+		"age": 31,
+		"skills": 84
+	},
+	{
+		"id": 2,
+		"name": "Ricardo Prass",
+		"nickname": "boltz",
+		"age": 25,
+		"skills": 79
+	},
+	{
+		"id": 3,
+		"name": "Vinicius Figueiredo",
+		"nickname": "VINI",
+		"age": 23,
+		"skills": 78
+	},
+	{
+		"id": 4,
+		"name": "Marcelo Cespedes",
+		"nickname": "chelo",
+		"age": 24,
+		"skills": 84
+	},
+	{
+		"id": 5,
+		"name": "Jhonatan Willian",
+		"nickname": "JOTA",
+		"age": 24,
+		"skills": 83
+	},
+	{
+		"id": 6,
+		"name": "João Vasconcellos",
+		"nickname": "felps",
+		"age": 26,
+		"skills": 84
+	},
+	{
+		"id": 7,
+		"name": "Lucas Neves",
+		"nickname": "Lucaozy",
+		"age": 31,
+		"skills": 83
+	},
+	{
+		"id": 8,
+		"name": "Vinicius Moreira",
+		"nickname": "v$m",
+		"age": 23,
+		"skills": 78
+	},
+	{
+		"id": 9,
+		"name": "Adriano Cerato",
+		"nickname": "WOOD7",
+		"age": 27,
+		"skills": 76
+	},
+	{
+		"id": 10,
+		"name": "Allan Lawrenz",
+		"nickname": "history",
+		"age": 18,
+		"skills": 80
+	}
+]
