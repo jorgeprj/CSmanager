@@ -1,4 +1,4 @@
-import { Match } from "../classes/Match";
+import { Match } from "../classes/match/Match";
 import { MatchRepository } from "../repositories/MatchRepository";
 import { InvalidIdException } from "./exceptions";
 

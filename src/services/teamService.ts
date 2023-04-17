@@ -1,4 +1,4 @@
-import { Team } from "../classes/Team";
+import { Team } from "../classes/team/Team";
 import { TeamRepository } from "../repositories/TeamRepository";
 import { InvalidIdException } from "./exceptions";
 

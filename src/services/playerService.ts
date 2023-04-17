@@ -1,4 +1,4 @@
-import { Player } from "../classes/Player";
+import { Player } from "../classes/player/Player";
 import { PlayerRepository } from "../repositories/PlayerRepository";
 import { InvalidIdException } from "./exceptions";
 
