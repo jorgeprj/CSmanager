@@ -1,4 +1,4 @@
-import { Player } from '../classes/player'
+import { Player } from '../classes/Player'
 
 const fs = require("fs");
 

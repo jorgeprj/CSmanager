@@ -1,8 +1,8 @@
-import { Match } from '../classes/match'
+import { Match } from '../classes/Match'
 
 const fs = require("fs");
 
-export class matchRepository{
+export class MatchRepository{
     private connection = require('../database/matches.json');
 
     public getAll(): Match[]{

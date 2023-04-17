@@ -1,5 +1,5 @@
-import { PlayerService } from "../services/playerService";
-import { TeamService } from "../services/teamService";
+import { PlayerService } from "../services/PlayerService";
+import { TeamService } from "../services/TeamService";
 
 class MatchMapPlayer{
     private id: number;

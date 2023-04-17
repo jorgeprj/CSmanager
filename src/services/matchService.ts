@@ -1,10 +1,10 @@
-import { Match } from "../classes/match";
-import { matchRepository } from "../repositories/matchRepository";
+import { Match } from "../classes/Match";
+import { MatchRepository } from "../repositories/MatchRepository";
 import { InvalidIdException } from "./exceptions";
 
 
 export class MatchService{
-    private repository = new matchRepository();
+    private repository = new MatchRepository();
 
     public getAll(): Match[]{
         return this.repository.getAll()

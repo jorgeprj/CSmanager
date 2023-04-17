@@ -1,5 +1,5 @@
-import { Team } from "../classes/team";
-import { TeamRepository } from "../repositories/teamRepository";
+import { Team } from "../classes/Team";
+import { TeamRepository } from "../repositories/TeamRepository";
 import { InvalidIdException } from "./exceptions";
 
 export class TeamService{

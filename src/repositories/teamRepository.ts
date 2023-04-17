@@ -1,4 +1,4 @@
-import { Team } from '../classes/team'
+import { Team } from '../classes/Team'
 
 const fs = require("fs");
 

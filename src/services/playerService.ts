@@ -1,5 +1,5 @@
-import { Player } from "../classes/player";
-import { PlayerRepository } from "../repositories/playerRepository";
+import { Player } from "../classes/Player";
+import { PlayerRepository } from "../repositories/PlayerRepository";
 import { InvalidIdException } from "./exceptions";
 
 
