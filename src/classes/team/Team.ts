@@ -1,12 +1,14 @@
+import { Player } from "../player/Player";
+
 export class Team{
     private id: number;
     private name: string;
-    private activeLineup: number[];
+    private roster: Player[];
 
-    constructor(id: number, name: string, activeLineup: number[]){
+    constructor(id: number, name: string, roster: Player[]){
         this.id = id;
         this.name = name;
-        this.activeLineup = activeLineup;
+        this.roster = roster;
     }
 
     public getID(): number{
@@ -25,16 +27,24 @@ export class Team{
         this.name = name;
     }
 
-    public getActiveLineup(): number[]{
-        return this.activeLineup;
+    public getRoster(): Player[]{
+        return this.roster;
     }
 
-    public addActivePlayer(playerID: number): void{
-        this.activeLineup.push(playerID);
+    public addPlayerRoster(player: Player): void{
+        this.roster.push(player);
     }
 
-    public removeActivePlayer(playerID: number){
-        const index = this.activeLineup.indexOf(playerID);
-        this.activeLineup.splice(index, 1);
+    public removePlayerRoster(player: Player){
+        const index = this.roster.indexOf(player);
+        this.roster.splice(index, 1);
+    }
+
+    public getRosterIDs(): number[]{
+        const ids = new Array();
+        for(let player of this.getRoster()){
+            ids.push(player.getID());
+        }
+        return ids;
     }
 }
