@@ -1,15 +1,19 @@
+import { PlayerStatus } from "./PlayerStatus";
+
 export class Player{
     private id: number;
     private name: string;
     private nickname: string;
     private age: number;
+    private status: PlayerStatus;
     private skills: number;
 
-    constructor(id: number, name: string, nickname: string, age: number, skills: number){
+    constructor(id: number, name: string, nickname: string, age: number, status: PlayerStatus, skills: number){
         this.id = id;
         this.name = name;
         this.nickname = nickname;
         this.age = age;
+        this.status = status;
         this.skills = skills;
     }
     
@@ -43,6 +47,14 @@ export class Player{
 
     public setAge(age: number): void{
         this.age = age;
+    }
+
+    public getStatus(): PlayerStatus{
+        return this.status;
+    }
+
+    public setStatus(status: PlayerStatus): void{
+        this.status = status;
     }
 
     public getSkills(): number{

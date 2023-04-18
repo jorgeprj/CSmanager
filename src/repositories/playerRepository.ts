@@ -8,15 +8,15 @@ export class PlayerRepository{
     public getAll(): Player[]{
         const data = this.connection;
         let players = new Array();
-        for(let playerData of data){
-            players.push(new Player(playerData.id, playerData.name, playerData.nickname, playerData.age, playerData.skills));
+        for(let player of data){
+            players.push(new Player(player.id, player.name, player.nickname, player.age, player.status, player.skills));
         }
         return players
     }
 
     public getByID(id: number): Player{
         const player = this.connection[this.getIndex(id)];
-        return new Player(player.id, player.name, player.nickname, player.age, player.skills);
+        return new Player(player.id, player.name, player.nickname, player.age, player.status, player.skills);
     }
 
     public create(player: Player): void{
@@ -28,7 +28,7 @@ export class PlayerRepository{
     }
 
     public update(id: number, player: Player): void{
-        const players = this.getAll();
+        const players = this.connection;
         const index = this.getIndex(id);
         players[index] = player;
         this.save(players);
@@ -41,7 +41,7 @@ export class PlayerRepository{
         this.save(players);
     }
 
-    private save(data: Player[]): void{
+    private save(data): void{
         fs.writeFile('src/database/players.json', JSON.stringify(data, null, '\t'), (Error: any) => {
             if (Error) throw Error; 
             console.log("Update done!"); 
