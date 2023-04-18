@@ -1,4 +1,5 @@
 import { Player } from "../player/Player";
+import { PlayerStatus } from "../player/PlayerStatus";
 
 export class Team{
     private id: number;
@@ -43,6 +44,18 @@ export class Team{
     public getRosterIDs(): number[]{
         const ids = new Array();
         for(let player of this.getRoster()){
+            ids.push(player.getID());
+        }
+        return ids;
+    }
+
+    public getStarterPlayers(): Player[]{
+        return this.roster.filter(player => player.getStatus() === PlayerStatus.starter);
+    }
+
+    public getStarterPlayersIDs(): number[]{
+        const ids = new Array();
+        for(let player of this.getStarterPlayers()){
             ids.push(player.getID());
         }
         return ids;
