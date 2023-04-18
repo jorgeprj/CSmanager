@@ -2,7 +2,7 @@
 	{
 		"id": 1,
 		"name": "Imperial Sportsbet.io",
-		"lineup": [
+		"roster": [
 			1,
 			2,
 			3,
@@ -13,7 +13,7 @@
 	{
 		"id": 2,
 		"name": "Fluxo",
-		"lineup": [
+		"roster": [
 			6,
 			7,
 			8,

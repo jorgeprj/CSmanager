@@ -4,6 +4,7 @@
 		"name": "Gabriel Toledo",
 		"nickname": "FalleN",
 		"age": 31,
+		"status": 1,
 		"skills": 84
 	},
 	{
@@ -11,6 +12,7 @@
 		"name": "Ricardo Prass",
 		"nickname": "boltz",
 		"age": 25,
+		"status": 1,
 		"skills": 79
 	},
 	{
@@ -18,6 +20,7 @@
 		"name": "Vinicius Figueiredo",
 		"nickname": "VINI",
 		"age": 23,
+		"status": 1,
 		"skills": 78
 	},
 	{
@@ -25,6 +28,7 @@
 		"name": "Marcelo Cespedes",
 		"nickname": "chelo",
 		"age": 24,
+		"status": 1,
 		"skills": 84
 	},
 	{
@@ -32,6 +36,7 @@
 		"name": "Jhonatan Willian",
 		"nickname": "JOTA",
 		"age": 24,
+		"status": 1,
 		"skills": 83
 	},
 	{
@@ -39,6 +44,7 @@
 		"name": "João Vasconcellos",
 		"nickname": "felps",
 		"age": 26,
+		"status": 1,
 		"skills": 84
 	},
 	{
@@ -46,6 +52,7 @@
 		"name": "Lucas Neves",
 		"nickname": "Lucaozy",
 		"age": 31,
+		"status": 1,
 		"skills": 83
 	},
 	{
@@ -53,6 +60,7 @@
 		"name": "Vinicius Moreira",
 		"nickname": "v$m",
 		"age": 23,
+		"status": 1,
 		"skills": 78
 	},
 	{
@@ -60,6 +68,7 @@
 		"name": "Adriano Cerato",
 		"nickname": "WOOD7",
 		"age": 27,
+		"status": 1,
 		"skills": 76
 	},
 	{
@@ -67,6 +76,15 @@
 		"name": "Allan Lawrenz",
 		"nickname": "history",
 		"age": 18,
+		"status": 1,
 		"skills": 80
+	},
+	{
+		"id": 11,
+		"name": "Lucas Meneghini",
+		"nickname": "lux",
+		"age": 20,
+		"status": 2,
+		"skills": 75
 	}
 ]
