@@ -1,4 +1,3 @@
-
 export class MatchMapPlayer {
     private id: number;
     private health: number;

@@ -2,8 +2,6 @@ import { PlayerService } from "../../services/PlayerService";
 import { MatchMapPlayer } from "./MatchMapPlayer";
 import { MatchMapTeam } from "./MatchMapTeam";
 
-
-
 export class MatchMap {
     private id: number;
     private idTeamA: number;
@@ -101,7 +99,7 @@ export class MatchMap {
 
     }
 
-    public playOvertime(playersTeamA: MatchMapTeam, playersTeamB: MatchMapTeam): void {
+    private playOvertime(playersTeamA: MatchMapTeam, playersTeamB: MatchMapTeam): void {
         const MAX_ROUNDS = 6;
         let overtimeRound = 1;
         const scoreTeamA = this.getScoreTeamA();

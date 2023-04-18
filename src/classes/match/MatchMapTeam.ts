@@ -1,9 +1,7 @@
 import { TeamService } from "../../services/TeamService";
 import { MatchMapPlayer } from "./MatchMapPlayer";
 
-
-
-export class MatchMapTeam {
+export class MatchMapTeam{
     private id: number;
     private players: MatchMapPlayer[];
 
@@ -26,7 +24,7 @@ export class MatchMapTeam {
 
     public setPlayers(): void {
         const team_service = new TeamService();
-        const playersID = team_service.getByID(this.id).getActiveLineup();
+        const playersID = team_service.getByID(this.id).getStarterPlayersIDs();
         const players: MatchMapPlayer[] = [];
 
         for (const id of playersID) {
@@ -52,5 +50,4 @@ export class MatchMapTeam {
     public resetPlayersHealth(): void {
         this.players.forEach((player) => player.resetHealth());
     }
-
 }

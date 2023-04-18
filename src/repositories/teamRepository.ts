@@ -1,4 +1,5 @@
 import { Team } from '../classes/team/Team'
+import { PlayerRepository } from './PlayerRepository';
 
 const fs = require("fs");
 
@@ -8,29 +9,39 @@ export class TeamRepository{
     public getAll(): Team[]{
         const data = this.connection;
         let teams = new Array();
-        for(let teamData of data){
-            teams.push(new Team(teamData.id, teamData.name, teamData.lineup));
+        for(let team of data){
+            teams.push(this.getByID(team.id));
         }
         return teams
     }
 
     public getByID(id: number): Team{
+        const player_repository = new PlayerRepository();
         const team = this.connection[this.getIndex(id)];
-        return new Team(team.id, team.name, team.lineup);
+        const players = new Array();
+        for(let playerID of team.roster){
+            players.push(player_repository.getByID(playerID))
+        }
+        return new Team(team.id, team.name, players)
     }
 
-    public create(entity: Team): void{
-        const teams = this.getAll();
-        let newID = teams.length > 0 ? teams[teams.length - 1].getID() + 1 : 1;
-        entity.setID(newID);
-        teams.push(entity);
+    public create(team: Team): void{
+        const teams = this.connection;
+        let newID = teams.length > 0 ? teams[teams.length - 1].id + 1 : 1;
+        team.setID(newID);
+        let dbTeam = { 
+                        id: team.getID(),
+                        name: team.getName(),
+                        roster: team.getRosterIDs(),
+                     }
+        teams.push(dbTeam);
         this.save(teams);
     }
 
-    public update(id: number, entity: Team): void{
+    public update(id: number, team: Team): void{
         const teams = this.getAll();
         const index = this.getIndex(id);
-        teams[index] = entity;
+        teams[index] = team;
         this.save(teams);
     }
 
@@ -42,7 +53,7 @@ export class TeamRepository{
     }
 
     private save(data: Team[]): void{
-        fs.writeFile('src/database/players.json', JSON.stringify(data, null, '\t'), (Error: any) => {
+        fs.writeFile('src/database/teams.json', JSON.stringify(data, null, '\t'), (Error: any) => {
             if (Error) throw Error; 
             console.log("Update done!"); 
         });
