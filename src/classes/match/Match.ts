@@ -66,7 +66,7 @@ export class Match{
     }
 
     public setScore(map: MatchMap): void{    
-        if(map.getWinner() === "A")
+        if(map.getStats().getWinner() === "A")
             this.addScoreTeamA();
         else
             this.addScoreTeamB();

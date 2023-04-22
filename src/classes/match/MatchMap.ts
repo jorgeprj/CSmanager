@@ -1,166 +1,146 @@
 import { PlayerService } from "../../services/PlayerService";
 import { MatchMapPlayer } from "./MatchMapPlayer";
+import { MatchMapStats } from "./MatchMapStats";
 import { MatchMapTeam } from "./MatchMapTeam";
 
-export class MatchMap {
+export class MatchMap{
     private id: number;
     private idTeamA: number;
     private idTeamB: number;
-    private scoreTeamA: number;
-    private scoreTeamB: number;
+    private stats: MatchMapStats;
 
-    constructor(id: number, idTeamA: number, idTeamB: number) {
+    constructor(id: number, idTeamA: number, idTeamB: number){
         this.id = id;
         this.idTeamA = idTeamA;
         this.idTeamB = idTeamB;
-        this.scoreTeamA = 0;
-        this.scoreTeamB = 0;
+        this.stats = new MatchMapStats(idTeamA, idTeamB);
     }
 
-    public getID(): number {
+    public getID(): number{
         return this.id;
     }
 
-    public setID(id: number) {
+    public setID(id: number){
         this.id = id;
     }
 
-    public getIDTeamA(): number {
+    public getIDTeamA(): number{
         return this.idTeamA;
     }
 
-    public setIDTeamA(id: number): void {
+    public setIDTeamA(id: number): void{
         this.idTeamA = id;
     }
 
-    public getIDTeamB(): number {
+    public getIDTeamB(): number{
         return this.idTeamB;
     }
 
-    public setIDTeamB(id: number): void {
+    public setIDTeamB(id: number): void{
         this.idTeamB = id;
     }
 
-    public getScoreTeamA(): number {
-        return this.scoreTeamA;
+    public getStats(): MatchMapStats{
+        return this.stats;
     }
 
-    public setScoreTeamA(scoreTeamA: number): void {
-        this.scoreTeamA = scoreTeamA;
+    public setStats(stats: MatchMapStats): void{
+        this.stats = stats;
     }
 
-    public addScoreTeamA(): void {
-        this.setScoreTeamA(this.getScoreTeamA() + 1);
-    }
-
-    public getScoreTeamB(): number {
-        return this.scoreTeamB;
-    }
-
-    public setScoreTeamB(scoreTeamB: number): void {
-        this.scoreTeamB = scoreTeamB;
-    }
-
-    public addScoreTeamB(): void {
-        this.setScoreTeamB(this.getScoreTeamB() + 1);
-    }
-
-    public getWinner(): string {
-        if (this.getScoreTeamA() > this.getScoreTeamB())
-            return "A";
-
-        else
-            return "B";
-    }
-
-    public play(): void {
+    public play(): void{
         const MAX_ROUNDS = 30;
         let currentRound = 1;
-
-        const lineupA = new MatchMapTeam(this.idTeamA, []);
-        lineupA.setPlayers();
-
-        const lineupB = new MatchMapTeam(this.idTeamB, []);
-        lineupB.setPlayers();
-
-        while (currentRound <= MAX_ROUNDS) {
+        
+        const lineupA = new MatchMapTeam(this.idTeamA,[]);
+        lineupA.setPlayers()
+        
+        const lineupB = new MatchMapTeam(this.idTeamB,[]);
+        lineupB.setPlayers()
+      
+        while(currentRound <= MAX_ROUNDS){
             this.playRound(lineupA, lineupB);
-
-            if (this.scoreTeamA === 16 || this.scoreTeamB === 16) {
-                console.log(`Map ended. ${this.scoreTeamA} x ${this.scoreTeamB}`);
-                return;
+      
+            if(this.stats.getScoreTeamA() === 16 || this.stats.getScoreTeamB() === 16){
+                console.log(`Map ended. ${this.stats.getScoreTeamA()} x ${this.stats.getScoreTeamB()}`);
+                this.stats.setWinnersPlayers();
+                return
             }
             currentRound++;
         }
-        if (this.scoreTeamA === 15 && this.scoreTeamB === 15) {
-            console.log("OVERTIME!");
+
+        if(this.stats.getScoreTeamA() === 15 && this.stats.getScoreTeamB() === 15){
+            console.log("OVERTIME!")
             this.playOvertime(lineupA, lineupB);
         }
-
     }
 
-    private playOvertime(playersTeamA: MatchMapTeam, playersTeamB: MatchMapTeam): void {
+    private playOvertime(playersTeamA: MatchMapTeam, playersTeamB: MatchMapTeam): void{
         const MAX_ROUNDS = 6;
         let overtimeRound = 1;
-        const scoreTeamA = this.getScoreTeamA();
-        const scoreTeamB = this.getScoreTeamB();
-
-        while (overtimeRound <= MAX_ROUNDS) {
+        const scoreTeamA = this.stats.getScoreTeamA();
+        const scoreTeamB = this.stats.getScoreTeamB();
+  
+        while(overtimeRound <= MAX_ROUNDS) {
             this.playRound(playersTeamA, playersTeamB);
-
-            if (this.scoreTeamA === scoreTeamA + 4 || this.scoreTeamB === scoreTeamB + 4) {
-                console.log(`Overtime ended. ${this.scoreTeamA} x ${this.scoreTeamB}`);
+          
+            if(this.stats.getScoreTeamA() === scoreTeamA + 4 || this.stats.getScoreTeamB() === scoreTeamB + 4){
+                console.log(`Overtime ended. ${this.stats.getScoreTeamA()} x ${this.stats.getScoreTeamB()}`);
+                this.stats.setWinnersPlayers();
                 return;
             }
             overtimeRound++;
         }
-
-        if (this.scoreTeamA === scoreTeamA + 3 && this.scoreTeamB === scoreTeamB + 3) {
+        
+        if(this.stats.getScoreTeamA() === scoreTeamA + 3 && this.stats.getScoreTeamB() === scoreTeamB + 3){
             console.log("OVERTIME AGAIN!");
             this.playOvertime(playersTeamA, playersTeamB);
         }
     }
 
-    private playRound(playersTeamA: MatchMapTeam, playersTeamB: MatchMapTeam) {
+    private playRound(playersTeamA: MatchMapTeam, playersTeamB: MatchMapTeam){
         let aliveTeamA = playersTeamA;
         let aliveTeamB = playersTeamB;
-
-        while (aliveTeamA.getPlayers().length > 0 && aliveTeamB.getPlayers().length > 0) {
+    
+        while(aliveTeamA.getPlayers().length > 0 && aliveTeamB.getPlayers().length > 0){
             const randomPlayerTeamA = aliveTeamA.selectRandomPlayer();
             const randomPlayerTeamB = aliveTeamB.selectRandomPlayer();
-
+            
             this.playEncounter(randomPlayerTeamA, randomPlayerTeamB);
-
+    
             aliveTeamA = playersTeamA.filterAlivePlayers();
             aliveTeamB = playersTeamB.filterAlivePlayers();
         }
+    
+        if(aliveTeamB.isDead())
+            this.stats.addScoreTeamA();
+        else if(aliveTeamA.isDead())
+            this.stats.addScoreTeamB();
+        
 
-        if (aliveTeamB.isDead())
-            this.addScoreTeamA();
-        else if (aliveTeamA.isDead())
-            this.addScoreTeamB();
-
-
-        console.log(`${this.scoreTeamA} x ${this.scoreTeamB}`);
+        console.log(`${this.stats.getScoreTeamA()} x ${this.stats.getScoreTeamB()}`)
         playersTeamA.resetPlayersHealth();
         playersTeamB.resetPlayersHealth();
     }
 
-    private playEncounter(playerCT: MatchMapPlayer, playerT: MatchMapPlayer): void {
+    private playEncounter(playerCT: MatchMapPlayer, playerT: MatchMapPlayer): void{
         const randomPlayer = Math.floor(Math.random() * 2) + 1;
 
-        if (randomPlayer == 1) {
+        if (randomPlayer == 1){
             playerT.kill();
             this.printKill(playerCT.getID(), playerT.getID());
-        } else {
+            this.stats.addKillToPlayerStats(playerCT.getID());
+            this.stats.addDeathToPlayerStats(playerT.getID());
+        }else{
             playerCT.kill();
             this.printKill(playerT.getID(), playerCT.getID());
+            this.stats.addKillToPlayerStats(playerT.getID());
+            this.stats.addDeathToPlayerStats(playerCT.getID());
         }
     }
 
-    private printKill(idKiller: number, idKilled: number): void {
+    private printKill(idKiller: number, idKilled: number): void{
         const player_service = new PlayerService();
         console.log(`${player_service.getByID(idKiller).getNickname()} killed ${player_service.getByID(idKilled).getNickname()}`);
     }
-
 }
