@@ -1,3 +1,4 @@
+import { PlayerStats } from "./PlayerStats";
 import { PlayerStatus } from "./PlayerStatus";
 
 export class Player{
@@ -7,14 +8,16 @@ export class Player{
     private age: number;
     private status: PlayerStatus;
     private skills: number;
+    private stats: PlayerStats;
 
-    constructor(id: number, name: string, nickname: string, age: number, status: PlayerStatus, skills: number){
+    constructor(id: number, name: string, nickname: string, age: number, status: PlayerStatus, skills: number, stats: PlayerStats){
         this.id = id;
         this.name = name;
         this.nickname = nickname;
         this.age = age;
         this.status = status;
         this.skills = skills;
+        this.stats = stats;
     }
     
     public getID(): number{
@@ -63,5 +66,13 @@ export class Player{
 
     public setSkills(skills: number): void{
         this.skills = skills;
+    }
+
+    public getStats(): PlayerStats{
+        return this.stats;
+    }
+
+    public setStats(stats: PlayerStats): void{
+        this.stats = stats;
     }
 }
