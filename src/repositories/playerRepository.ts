@@ -1,4 +1,5 @@
 import { Player } from '../classes/player/Player'
+import { PlayerStats } from '../classes/player/PlayerStats';
 
 const fs = require("fs");
 
@@ -9,14 +10,16 @@ export class PlayerRepository{
         const data = this.connection;
         let players = new Array();
         for(let player of data){
-            players.push(new Player(player.id, player.name, player.nickname, player.age, player.status, player.skills));
+            let stats = new PlayerStats(player.playedMaps, player.wonMaps, player.kills, player.deaths);
+            players.push(new Player(player.id, player.name, player.nickname, player.age, player.status, player.skills, stats));
         }
         return players
     }
 
     public getByID(id: number): Player{
         const player = this.connection[this.getIndex(id)];
-        return new Player(player.id, player.name, player.nickname, player.age, player.status, player.skills);
+        const stats = new PlayerStats(player.stats.playedMaps, player.stats.wonMaps, player.stats.kills, player.stats.deaths);
+        return new Player(player.id, player.name, player.nickname, player.age, player.status, player.skills, stats);
     }
 
     public create(player: Player): void{
