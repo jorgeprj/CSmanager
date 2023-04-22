@@ -4,58 +4,88 @@
 		"idTeamA": 1,
 		"idTeamB": 2,
 		"scoreTeamA": 1,
-		"scoreTeamB": 2,
+		"scoreTeamB": 0,
 		"maps": [
 			{
 				"id": 1,
 				"idTeamA": 1,
 				"idTeamB": 2,
-				"scoreTeamA": 16,
-				"scoreTeamB": 9
-			},
-			{
-				"id": 1,
-				"idTeamA": 1,
-				"idTeamB": 2,
-				"scoreTeamA": 12,
-				"scoreTeamB": 16
-			},
-			{
-				"id": 1,
-				"idTeamA": 1,
-				"idTeamB": 2,
-				"scoreTeamA": 11,
-				"scoreTeamB": 16
-			}
-		]
-	},
-	{
-		"id": 2,
-		"idTeamA": 1,
-		"idTeamB": 2,
-		"scoreTeamA": 1,
-		"scoreTeamB": 2,
-		"maps": [
-			{
-				"id": 1,
-				"idTeamA": 1,
-				"idTeamB": 2,
-				"scoreTeamA": 16,
-				"scoreTeamB": 14
-			},
-			{
-				"id": 1,
-				"idTeamA": 1,
-				"idTeamB": 2,
-				"scoreTeamA": 13,
-				"scoreTeamB": 16
-			},
-			{
-				"id": 1,
-				"idTeamA": 1,
-				"idTeamB": 2,
-				"scoreTeamA": 16,
-				"scoreTeamB": 19
+				"stats": {
+					"scoreTeamA": 16,
+					"scoreTeamB": 9,
+					"playersStats": [
+						{
+							"playerID": 1,
+							"teamID": 1,
+							"kills": 24,
+							"deaths": 19,
+							"wonMap": true
+						},
+						{
+							"playerID": 2,
+							"teamID": 1,
+							"kills": 23,
+							"deaths": 17,
+							"wonMap": true
+						},
+						{
+							"playerID": 3,
+							"teamID": 1,
+							"kills": 14,
+							"deaths": 16,
+							"wonMap": true
+						},
+						{
+							"playerID": 4,
+							"teamID": 1,
+							"kills": 16,
+							"deaths": 16,
+							"wonMap": true
+						},
+						{
+							"playerID": 5,
+							"teamID": 1,
+							"kills": 22,
+							"deaths": 17,
+							"wonMap": true
+						},
+						{
+							"playerID": 6,
+							"teamID": 2,
+							"kills": 13,
+							"deaths": 21,
+							"wonMap": false
+						},
+						{
+							"playerID": 7,
+							"teamID": 2,
+							"kills": 20,
+							"deaths": 20,
+							"wonMap": false
+						},
+						{
+							"playerID": 8,
+							"teamID": 2,
+							"kills": 13,
+							"deaths": 20,
+							"wonMap": false
+						},
+						{
+							"playerID": 9,
+							"teamID": 2,
+							"kills": 24,
+							"deaths": 19,
+							"wonMap": false
+						},
+						{
+							"playerID": 10,
+							"teamID": 2,
+							"kills": 15,
+							"deaths": 19,
+							"wonMap": false
+						}
+					]
+				}
 			}
 		]
 	}
