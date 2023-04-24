@@ -2,7 +2,9 @@
 
 ## [Unreleased]
 ### Added
-- Match Simulation
+- Player status: "retired", "starter" and "benched".
+- Player stats in the match.
+- Player stats history.
 
 
 ### Changed
